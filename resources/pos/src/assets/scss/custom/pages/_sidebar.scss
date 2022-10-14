@@ -1,0 +1,105 @@
+@import "../../components/variables";
+@import "../../base/mixin";
+@import '~react-pro-sidebar/dist/scss/styles';
+
+.pro-sidebar {
+    @media (min-width: 992px) {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    @media (max-width: 992px) {
+        position: fixed;
+        transition: 0.3s ease-in-out;
+        left: -270px;
+        overflow: auto;
+    }
+
+    .pro-sidebar-inner {
+        background-color: $white !important;
+
+        @media (max-width: 992px) {
+            min-height: 100vh;
+            height: auto;
+        }
+
+        .pro-sidebar-layout {
+            overflow-y: hidden;
+        }
+    }
+
+    .pro-menu {
+        padding: 0px !important;
+        &.sidebar-scrolling {
+            height: calc(100% - 70px);
+        }
+
+        .pro-menu-item {
+            .pro-inner-item {
+                border-left: 0.313rem solid transparent;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+                padding: 5px 20px 5px 18px;
+                font-size: .875rem;
+
+                &:hover {
+                    background-color: $primary-light;
+                    border-left: 0.313rem solid $primary !important;
+
+                    svg, .pro-item-content a {
+                        color: $gray-900;
+                    }
+                }
+            }
+
+            &.active {
+                .pro-inner-item {
+                    background-color: $primary-light;
+                    border-left: 0.313rem solid $primary !important;
+
+                    svg, .pro-item-content a {
+                        color: $gray-900;
+                    }
+                }
+            }
+
+            .pro-icon-wrapper {
+                margin-right: 4px !important;
+                margin-left: 0 !important;
+
+                .pro-icon {
+                    color: $gray-600;
+                    font-size: 0.875rem !important;
+                    animation: unset !important;
+                }
+            }
+
+            .pro-item-content {
+                a {
+                    color: $gray-600;
+                }
+            }
+        }
+    }
+}
+
+.open-menu {
+    @media (max-width: 1199px) {
+        left: 0 !important;
+    }
+}
+
+.bg-overlay {
+    @media (max-width: 992px) {
+        @include bg-overly;
+    }
+}
+
+.header-active {
+    border-bottom: 2px solid $primary;
+    color: $black !important;
+}
+
+.header-tabs:hover, .header-tabs:focus {
+    color: $black !important;
+    border-bottom: 2px solid $primary;
+}
